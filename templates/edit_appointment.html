@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Редагувати запис</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Редагувати запис на прийом</h1>
+    <form method="POST">
+        <label>Пацієнт:</label>
+        <select name="patient_id">
+            {% for patient in patients %}
+            <option value="{{ patient.id }}" {% if patient.id == appointment.patient_id %}selected{% endif %}>
+                {{ patient.name }}
+            </option>
+            {% endfor %}
+        </select><br>
+
+        <label>Лікар:</label>
+        <select name="doctor_id">
+            {% for doctor in doctors %}
+            <option value="{{ doctor.id }}" {% if doctor.id == appointment.doctor_id %}selected{% endif %}>
+                {{ doctor.name }}
+            </option>
+            {% endfor %}
+        </select><br>
+
+        <label>Послуга:</label>
+        <select name="service_id">
+            {% for service in services %}
+            <option value="{{ service.id }}" {% if service.id == appointment.service_id %}selected{% endif %}>
+                {{ service.name }}
+            </option>
+            {% endfor %}
+        </select><br>
+
+        <label>Дата прийому:</label>
+        <input type="date" name="appointment_date" value="{{ appointment.appointment_date }}" required><br>
+
+        <button type="submit">Зберегти</button>
+    </form>
+</body>
+</html>

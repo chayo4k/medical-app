@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Медичні установи</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="banner">
+        <img src="{{ url_for('static', filename='img/banner.jpg') }}" alt="Медичні установи">
+        <div class="banner-text">
+            <h1>Система управління медичними установами</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="menu">
+            <a href="/" class="btn">Медичні установи</a>
+            <a href="/doctors" class="btn">Лікарі</a>
+            <a href="/patients" class="btn">Пацієнти</a>
+            <a href="/services" class="btn">Послуги</a>
+            <a href="/appointments" class="btn">Записи на прийом</a>
+        </div>
+
+        <h2>Список медичних установ</h2>
+        <a href="/add_facility" class="btn add-btn">Додати нову установу</a>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Назва</th>
+                    <th>Адреса</th>
+                    <th>Телефон</th>
+                    <th>Дії</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for facility in facilities %}
+                <tr>
+                    <td>{{ facility.name }}</td>
+                    <td>{{ facility.address }}</td>
+                    <td>{{ facility.phone }}</td>
+                    <td>
+                        <a href="/edit_facility/{{ facility.id }}">Редагувати</a>
+                        <a href="/delete/{{ facility.id }}" class="delete" onclick="return confirm('Видалити?')">Видалити</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

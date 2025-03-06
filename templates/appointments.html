@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Записи на прийом</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="banner">
+        <img src="{{ url_for('static', filename='img/banner.jpg') }}" alt="Медичні установи">
+        <div class="banner-text">
+            <h1>Система управління медичними установами</h1>
+        </div>
+    </div>
+
+    <div class="menu">
+        <a href="/" class="btn">Медичні установи</a>
+        <a href="/doctors" class="btn">Лікарі</a>
+        <a href="/patients" class="btn">Пацієнти</a>
+        <a href="/services" class="btn">Послуги</a>
+        <a href="/appointments" class="btn">Записи на прийом</a>
+    </div>
+
+    <h2>Список записів на прийом</h2>
+    <a href="/add_appointment" class="btn add-btn">Додати запис</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Пацієнт</th>
+                <th>Лікар</th>
+                <th>Послуга</th>
+                <th>Дата прийому</th>
+                <th>Дії</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+            <tr>
+                <td>{{ appointment.patient.name }}</td>
+                <td>{{ appointment.doctor.name }}</td>
+                <td>{{ appointment.service.name }}</td>
+                <td>{{ appointment.appointment_date }}</td>
+                <td>
+                    <a href="/edit_appointment/{{ appointment.id }}">Редагувати</a>
+                    <a href="/delete_appointment/{{ appointment.id }}" class="delete" onclick="return confirm('Видалити?')">Видалити</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</body>
+</html>

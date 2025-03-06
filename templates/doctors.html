@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Лікарі</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="banner">
+        <img src="{{ url_for('static', filename='img/banner.jpg') }}" alt="Медичні установи">
+        <div class="banner-text">
+            <h1>Система управління медичними установами</h1>
+        </div>
+    </div>
+
+    <div class="menu">
+        <a href="/" class="btn">Медичні установи</a>
+        <a href="/doctors" class="btn">Лікарі</a>
+        <a href="/patients" class="btn">Пацієнти</a>
+        <a href="/services" class="btn">Послуги</a>
+        <a href="/appointments" class="btn">Записи на прийом</a>
+    </div>
+
+    <h2>Список лікарів</h2>
+    <a href="/add_doctor" class="btn add-btn">Додати лікаря</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Ім'я</th>
+                <th>Спеціалізація</th>
+                <th>Медична установа</th>
+                <th>Дії</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for doctor in doctors %}
+            <tr>
+                <td>{{ doctor.name }}</td>
+                <td>{{ doctor.specialization }}</td>
+                <td>{{ doctor.facility.name }}</td>
+                <td>
+                    <a href="/delete_doctor/{{ doctor.id }}" class="delete" onclick="return confirm('Видалити?')">Видалити</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

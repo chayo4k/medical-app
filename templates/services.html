@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Медичні послуги</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="banner">
+        <img src="{{ url_for('static', filename='img/banner.jpg') }}" alt="Медичні установи">
+        <div class="banner-text">
+            <h1>Система управління медичними установами</h1>
+        </div>
+    </div>
+
+    <div class="menu">
+        <a href="/" class="btn">Медичні установи</a>
+        <a href="/doctors" class="btn">Лікарі</a>
+        <a href="/patients" class="btn">Пацієнти</a>
+        <a href="/services" class="btn">Послуги</a>
+        <a href="/appointments" class="btn">Записи на прийом</a>
+    </div>
+
+    <h2>Список медичних послуг</h2>
+    <a href="/add_service" class="btn add-btn">Додати послугу</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Назва</th>
+                <th>Ціна</th>
+                <th>Медична установа</th>
+                <th>Дії</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for service in services %}
+            <tr>
+                <td>{{ service.name }}</td>
+                <td>{{ service.price }}</td>
+                <td>{{ service.facility.name }}</td>
+                <td>
+                    <a href="/edit_service/{{ service.id }}">Редагувати</a>
+                    <a href="/delete_service/{{ service.id }}" class="delete" onclick="return confirm('Видалити?')">Видалити</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</body>
+</html>

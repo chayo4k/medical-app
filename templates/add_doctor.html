@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Додати лікаря</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Додати лікаря</h1>
+    <form method="POST">
+        <label>Ім'я:</label>
+        <input type="text" name="name" required><br>
+        <label>Спеціалізація:</label>
+        <input type="text" name="specialization" required><br>
+        <label>Медична установа:</label>
+        <select name="facility_id">
+            {% for facility in facilities %}
+            <option value="{{ facility.id }}">{{ facility.name }}</option>
+            {% endfor %}
+        </select><br>
+        <button type="submit">Додати</button>
+    </form>
+</body>
+</html>
