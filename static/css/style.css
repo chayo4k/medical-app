@@ -1,0 +1,190 @@
+/* Загальні стилі */
+body {
+    font-family: Arial, sans-serif;
+    background: white;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Стилізація банера */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Текст на банері */
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* Центрування контейнера */
+.container {
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Оформлення заголовка */
+h1 {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+/* Кнопка додавання */
+.add-btn {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    text-align: center;
+    padding: 10px;
+    background-color: #13782a;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.add-btn:hover {
+    background-color: #176627;
+}
+
+/* Таблиця */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: -20px;
+}
+
+/* Заголовки таблиці */
+th {
+    background-color: #10457d;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    text-align: center;
+}
+
+/* Рядки таблиці */
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Чередування кольорів */
+tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+/* Кнопки дій */
+.edit, .delete {
+    padding: 8px 12px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.edit {
+    background-color: #c9a22e;
+}
+
+.edit:hover {
+    background-color: rgb(170, 135, 29);
+}
+
+.delete {
+    background-color: #b22230;
+}
+
+.delete:hover {
+    background-color: #990d1b;
+}
+
+/* Кнопки */
+button, a {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+
+button {
+    background-color: #10457d;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+a {
+    background-color: #28a745;
+    color: white;
+    padding: 8px 15px;
+}
+
+a:hover {
+    background-color: #218838;
+}
+
+/* Форма */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+}
+
+form label {
+    text-align: left;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+form input {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Список установ */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #ffffff;
+    padding: 10px;
+    margin: 10px auto;
+    width: 60%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
